@@ -1,0 +1,33 @@
+﻿<Window x:Class="HW7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:HW7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="475" Width="930">
+    <StackPanel VerticalAlignment="Top" Background="#FFFCD6D6">
+        <ToolBarTray Height="50" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <ToolBar Width="500" Height="50">
+                <Label Content="筆刷色彩" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <xctk:ColorPicker x:Name="strokeColorPicker" Width="100" SelectedColorChanged="strokeColorPicker_SelectedColorChanged" DisplayColorAndName="True"/>
+                <Label Content="填滿色彩" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <xctk:ColorPicker x:Name="fillColorPicker" Width="100" SelectedColorChanged="fillColorPicker_SelectedColorChanged" DisplayColorAndName="True"/>
+                <Slider x:Name="thicknessSlider" Value="3" Minimum="1" IsSnapToTickEnabled="True" Width="80" VerticalAlignment="Center" HorizontalAlignment="Left" ValueChanged="thicknessSlider_ValueChanged"/>
+                <Label x:Name="thicknessLabel" Width="30" Content="{Binding Value, ElementName=thicknessSlider}" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+            </ToolBar>
+            <ToolBar Height="50" Width="500">
+                <RadioButton Content="Line" Width="100" Height="50" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RadioButton_Click"/>
+                <RadioButton Content="Rectangle" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RadioButton_Click"/>
+                <RadioButton Content="Ellipse" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RadioButton_Click"/>
+                <RadioButton Content="Polyline" Width="100" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Click="RadioButton_Click"/>
+            </ToolBar>
+        </ToolBarTray>
+        <Canvas x:Name="myCanvas" Background="#FFEFECD1" Height="353" MouseLeftButtonDown="myCanvas_MouseLeftButtonDown" MouseMove="myCanvas_MouseMove" MouseLeftButtonUp="myCanvas_MouseButtonUp"/>
+        <StatusBar Height="25">
+            <Label x:Name="coordinateLabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="200"/>
+            <Label x:Name="shapeLabel" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="300"/>
+        </StatusBar>
+    </StackPanel>
+</Window>
